@@ -1,8 +1,8 @@
 # DAT.co Indicator Dashboard Report
 
 **Student Name:** 王開育 資工二 B13902152
-**Deployed Website URL:** [https://your-project-name.vercel.app](請填入部屬後的網址)
-**GitHub Repository:** [https://github.com/your-username/bitcoin](請填入Git Repo網址)
+**Deployed Website URL:** [https://robo-advisor-ochre.vercel.app/](https://robo-advisor-ochre.vercel.app/)
+**GitHub Repository:** [https://github.com/wky95/Robo-Advisor](https://github.com/wky95/Robo-Advisor)
 
 ---
 
