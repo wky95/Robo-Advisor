@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
 
     // Grab the latest 14 days of data to keep the prompt context concise but relevant
-    const recentData = data.slice(-14).map((d: any) => ({
+    const recentData = data.slice(-14).map((d: { date: string, mstrPrice: number, btcPrice: number, premium: number }) => ({
       date: d.date,
       mstrPrice: d.mstrPrice.toFixed(2),
       btcPrice: d.btcPrice.toFixed(2),
@@ -49,8 +49,9 @@ export async function POST(req: Request) {
     const responseText = result.response.text();
 
     return NextResponse.json({ summary: responseText });
-  } catch (error: any) {
-    console.error('Error generating AI summary:', error);
-    return NextResponse.json({ error: error.message || 'Failed to generate AI summary' }, { status: 500 });
+  } catch (error: unknown) {
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    console.error('Error generating AI summary:', errorMsg);
+    return NextResponse.json({ error: errorMsg || 'Failed to generate AI summary' }, { status: 500 });
   }
 }
